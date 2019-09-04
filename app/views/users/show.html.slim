@@ -1,0 +1,24 @@
+h1 ようこそ #{@user.name} さん
+
+- if @user == current_user
+    ul 
+      li = link_to "ログアウト", logout_path(@user), method: :delete, data: {confirm: "ログアウトしますか？"}
+      li =  link_to "プロフィールを編集する", edit_user_path(@user)
+    h2.make_event = link_to "イベントをつくる", new_user_event_path(@user)
+    h2.join_event = link_to "イベントに参加する"
+
+    .made_event_content
+      h2 作成済みのイベント
+      
+      - if @user.events.present?
+          - @user.events.each do |event|
+            .made_event_content_each
+              tr
+                td= link_to event.name, user_event_path(event.user) 
+                td= event.event_code
+                td 
+                  = link_to "イベントを編集する"
+                  = link_to "イベントを削除する", user_event_path(@user.id, event), method: :delete, data: { confirm: "#{event.name}を削除しますか?" }
+      - else
+          p 作成済みのイベントはありません
+

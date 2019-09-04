@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title
+      | Slido
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .container
+      - if flash.notice.present? 
+        .alert.alert-success= flash.notice
+      - elsif flash.alert.present?  
+        .alert.alert-success= flash.alert
+    = yield

@@ -1,0 +1,12 @@
+hi Sign Up!
+
+= form_with model: @user, local: true do |f|
+  .form-group
+    = f.text_field :name, placeholder: 'name',class: 'form-controll'
+  .form-group
+    = f.text_field :mail, placeholder: 'email', class: 'form-controll'
+  .form-group
+    = f.text_field :password, placeholder: 'password', class: 'form-controll'
+  .form-group
+    = f.text_field :password_confirmation, placeholder: 'password_confirmation', class: 'form-controll'
+  = f.submit nil, class: 'btn btn-primary' 

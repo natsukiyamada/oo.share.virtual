@@ -1,0 +1,8 @@
+h1 ログイン
+
+= form_with scope: :session, local: true do |f|
+    .form-group
+      = f.text_field :mail, placeholder: "email", class: 'form-controll'
+    .form-group
+      = f.text_field :password, placeholder: "password", class: 'form-controll'
+    = f.submit nil, class: 'btn btn-primary' 
