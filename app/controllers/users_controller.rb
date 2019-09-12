@@ -6,17 +6,20 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
+	    @user = User.new(user_params)
 	    if @user.save
-	      redirect_to user_path(@user), notice: "ユーザーの登録が完了しました"
+          session[:user_id] = @user.id
+          flash.notice = "ユーザを登録しました"
+	      redirect_to user_path(@user)
 	    else
-	      flash.now[:alert] = "ユーザーの登録に失敗しました"
+	      flash.now[:alert] = "登録できませんでした"
 	      render :new
 	    end
 	end
     
     def show 
     	@user = User.find_by(id: params[:id])
+        @events = @user.events
     end
 
 	def edit
@@ -34,6 +37,6 @@ class UsersController < ApplicationController
 private
 
 	def user_params
-	      params.require(:user).permit(:name, :mail, :password, :password_confirmation)
+	      params.require(:user).permit(:name, :mail, :password, :password_confirmation, :id)
 	end
 end

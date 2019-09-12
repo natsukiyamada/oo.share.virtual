@@ -1,24 +1,44 @@
-h1 ようこそ #{@user.name} さん
 
-- if @user == current_user
-    ul 
-      li = link_to "ログアウト", logout_path(@user), method: :delete, data: {confirm: "ログアウトしますか？"}
-      li =  link_to "プロフィールを編集する", edit_user_path(@user)
-    h2.make_event = link_to "イベントをつくる", new_user_event_path(@user)
-    h2.join_event = link_to "イベントに参加する"
-
-    .made_event_content
-      h2 作成済みのイベント
-      
-      - if @user.events.present?
-          - @user.events.each do |event|
-            .made_event_content_each
-              tr
-                td= link_to event.name, user_event_path(event.user) 
-                td= event.event_code
-                td 
-                  = link_to "イベントを編集する"
-                  = link_to "イベントを削除する", user_event_path(@user.id, event), method: :delete, data: { confirm: "#{event.name}を削除しますか?" }
-      - else
-          p 作成済みのイベントはありません
-
+/もし文字列の中にdata出力したい場合、h1 Welcome #{current_user.name} to the show.とする
+div.user_content
+  .user_info_details  
+    - if @user == current_user
+      div.user_edit
+        div.user_icon
+          .fas.fa-user
+          div= link_to "#{@user.mail}", edit_user_path(@user)
+      div.make_event_form  
+        = form_with scope: :invitation, url: invitations_path do |f|
+          .form-group
+            = f.text_field :event_code, placeholder: "#Enter Code", class: 'form-group'
+          = f.submit "参加", class: "make_event_form_submit"
+  
+div.event_content_wrapper
+  div.event_content  
+    div.create_event_form_wrapper
+      div.create_event_form イベントをつくる
+    - if @events.present?
+      - @user.events.each do |event|
+          div.event_content_each
+            div.user_show_event_name = link_to event.name, user_event_path(@user.id, event)
+            div.user_show_event_code = event.event_code
+            div.user_show_event_destroy = link_to "削除", user_event_path(@user.id, event), method: :delete, data: { confirm: "#{event.name}を削除しますか?" }
+    - else
+          div.no_event 作成済みのイベントはありません
+          
+div.modal_wrapper_make_event
+  div.modal
+    div#event_form
+      h1 イベントをつくる
+      .close_modal_event
+        i.fas.fa-times
+      = form_with scope: :event, url: user_events_path(@user) do |f|
+        .form-group    
+          = f.hidden_field :user_id, value: current_user.id, class: 'form-controll'
+        .form-group    
+          = f.hidden_field :event_code, value: random_code, class: 'form-controll'
+        .form-group
+          = f.text_field :name, placeholder: 'イベント名', class: 'form-controll'
+        .form-group
+          = f.text_area :content, rows: 5, placeholder: '説明があれば記入', class: 'form-controll'
+        = f.submit "作成", class: "submit_btn"

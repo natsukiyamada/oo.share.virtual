@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-helper_method :current_user
+helper_method :current_user, :signed_in?
 before_action :login_required
 
 private
@@ -11,4 +11,8 @@ private
 	def login_required
 		redirect_to root_path unless current_user
 	end
+
+	def signed_in?
+      current_user
+    end
 end

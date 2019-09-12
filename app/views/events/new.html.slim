@@ -1,5 +1,5 @@
 h1 イベントをつくる
-= @user.name
+
 
 = form_with(model: [@user, @event] ) do |f| 
   .form-group    
@@ -8,5 +8,7 @@ h1 イベントをつくる
     = f.hidden_field :event_code, value: random_code
   .form-group
     = f.text_field :name, placeholder: 'name',class: 'form-controll'
+  .form-group
+    = f.text_field :content, placeholder: '説明があれば記入', class: 'form-controll'
   = f.submit "イベント作成"
    

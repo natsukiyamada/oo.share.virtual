@@ -1,0 +1,8 @@
+= form_with(model: [ event, Comment.new ]) do |f| 
+        .form-group    
+            = f.hidden_field :user_id, value: user.id, class: "form-group"
+        .form-group    
+            = f.hidden_field :event_id, value: event.id, class: "form-group"
+        .form-group
+          = f.text_area :content, placeholder: "コメントを入力", class: 'form-controll'
+        = f.submit "SEND", class: "event_submit_btn"

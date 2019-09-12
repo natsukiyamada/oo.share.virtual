@@ -1,0 +1,21 @@
+div.event_navbar
+  div.event_name 
+    h3= @event.name
+  div.event_navbar_event_time
+    p= @event.created_at.strftime('%Y/%m/%d')
+  div.event_navbar_event_code 
+    p イベントコード: #{@event.event_code}
+  div.event_navbar_user_icon
+    .fas.fa-user
+
+div.event_comment_form_wrapper
+  div.event_comment_form_description_wrapper
+    div.event_comment_form_description
+      p 説明文: #{@event.content} 
+  
+  div.event_comment_form_main
+    div#post_comment_form
+      = render partial: 'comments/form', locals: { event: @event, user: @user }
+    
+    div#comments_area
+      = render partial: 'comments/index', locals: { comments: @comments }

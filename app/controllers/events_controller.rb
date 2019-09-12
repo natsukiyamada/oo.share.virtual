@@ -5,6 +5,9 @@ class EventsController < ApplicationController
   end
   
   def show 
+    @user = current_user
+    @event =Event.find(params[:id])
+    @comments = @event.comments.all
   end
 
   def create
@@ -30,7 +33,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:user_id, :event_code, :name)
+    params.require(:event).permit(:user_id, :event_code, :name, :content)
   end
 
 end
