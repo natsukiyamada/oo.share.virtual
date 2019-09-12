@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'unknown_users/create'
+  get 'unknown_users/destroy'
  root to: "homes#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  resources :users do
