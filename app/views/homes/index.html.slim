@@ -31,3 +31,9 @@ div.modal_wrapper_session
         .form-group
           = f.text_field :password, placeholder: "password", class: 'form-controll'
         = f.submit "ログイン", class: "submit_btn"
+
+div.join_events_with_unknown_user
+  = form_with scope: :unknown_user, url: unknown_users_path(UnknownUser.new), local: true do |f|
+    .form-group
+      = f.text_field :event_code, placeholder: "イベントコードを入力...", class: 'form-controll'
+    = f.submit "Join The Event", class: "submit_btn_unknown_user" 
