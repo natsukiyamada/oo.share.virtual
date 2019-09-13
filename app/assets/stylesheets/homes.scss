@@ -3,32 +3,74 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-visual {
-	position: relative;
-	background-color: red;
-	height:800;
+  position: relative;
+  text-align:center;
+  padding:50px;
 }
 
 .main_visual_image {
-	background-image : url(main_visual.jpg);
-	background-size: cover;
-	width: 100%;
-	height:700px;
+  background-color:rgba(106, 205, 95,1);
+  width: 100%;
+  height:700px;
 }
 
 .catchcopy {
-    font-size: 30px;
-    font-weight:40;
-    text-align: center;
-    line-height: 80px;
-    color:white;
     display: inline-block;
-	background-color: rgba(27, 79, 125,0.6);
-	position: absolute;
-	top: 40%;
+    text-align: center;
+    color:white;
+    background-color: rgba(27, 79, 125,0.6);
+    
+    position: absolute;
+    top: 30%;
     left: 30%;
     right: 30%;
-    height: 200px; 
-	border-radius: 200px;
+    padding:30px;
+     
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight:40;
+    line-height: 80px;
+    
+    .join_events_with_unknown_user {
+      display:inline-block;
+      width:80%;
+      
+      font-size:20px;
+      .form-group {
+
+         input[type="text"] {
+           border-style: none;
+           display:inline-block;
+           border-radius:20px;
+           width:50%;
+           height:70px;
+           margin-right:20px;
+           padding:0px 30px;
+           float:left;
+           
+         } 
+      }
+         
+      input[type="submit"] {
+          display:inline-block;
+          border-style: none;
+          float:left;
+          width:30%;
+          padding:20px;
+          
+          color:rgba(27, 79, 125,0.6);
+          border-radius:20px;
+          background-color:rgba(205, 238, 204,0.8);
+          
+          font-size:25px;
+          font-weight:40px;
+          cursor:pointer;
+      } 
+      
+      input[type="submit"]:hover {
+          background-color:rgba(205, 238, 204,1);
+      } 
+    }
 }
 
 .modal_wrapper_new, .modal_wrapper_session, .modal_wrapper_make_event {
@@ -39,11 +81,11 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
-  display: none;
+  display:none;
 }
 
 .active {
-	display: block;
+  display: block;
 }
 
 .modal {
@@ -77,6 +119,7 @@
   padding: 12px 12px;
   border: 1px solid #d0d5d8;
   border-radius: 5px;
+  resize: none;
 }
 
 
@@ -90,3 +133,4 @@
   margin: 10px auto;
   cursor: pointer;
 }
+

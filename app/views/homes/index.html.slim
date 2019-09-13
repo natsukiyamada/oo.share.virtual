@@ -1,7 +1,13 @@
 div.main_visual
   div.main_visual_image
-  div.catchcopy welcome to slido
-   
+  div.catchcopy 
+    h2 welcome to OO.share.
+    div.join_events_with_unknown_user
+      = form_with scope: :unknown_user, url: unknown_users_path(UnknownUser.new), local: true do |f|
+          .form-group
+            = f.text_field :event_code, placeholder: "イベントコードを入力...", class: 'form-controll'
+          = f.submit "Join", class: "submit_btn_unknown_user" 
+
 div.modal_wrapper_new
   div.modal
     div#signup_form 
@@ -32,8 +38,3 @@ div.modal_wrapper_session
           = f.text_field :password, placeholder: "password", class: 'form-controll'
         = f.submit "ログイン", class: "submit_btn"
 
-div.join_events_with_unknown_user
-  = form_with scope: :unknown_user, url: unknown_users_path(UnknownUser.new), local: true do |f|
-    .form-group
-      = f.text_field :event_code, placeholder: "イベントコードを入力...", class: 'form-controll'
-    = f.submit "Join The Event", class: "submit_btn_unknown_user" 
