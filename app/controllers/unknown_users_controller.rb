@@ -2,22 +2,21 @@ class UnknownUsersController < ApplicationController
   skip_before_action :login_required
 
   def create
-  	@event = Event.find_by(event_code: unknown_users_params[:event_code])
+    @event = Event.find_by(event_code: unknown_users_params[:event_code])
   
     if @event.present?
       @user = @event.user
       
       unless signed_in?
-        user = UnknownUser.new(unknown_users_params[:id])
-        session[:user_id] = user.id
+        unknown_user = UnknownUser.new(unknown_users_params[:id])
+        unknown_user.save
+        session[:unknown_user_id] = unknown_user.id
       end
       redirect_to user_event_path(@user, @event)
-      
     else
       flash.notice = "コードに該当するイベントが見つかりませんでした"
       redirect_to root_url
     end
-    
   end
 
   def destroy
