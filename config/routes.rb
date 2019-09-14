@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
  end
 
+ resources :comments, only: [] do
+    resource :like, only: [:create, :destroy]
+ end
+
  resources :invitations, only: [:new, :create, :destroy]
  
  resources :unknown_users, only: [:create, :destroy]

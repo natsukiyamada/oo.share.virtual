@@ -7,18 +7,18 @@ class EventsController < ApplicationController
   def show 
     @user = current_user
     @event =Event.find(params[:id])
-    @comments = @event.comments.all
+    @comments = @event.comments.all.order(created_at: "DESC")
   end
 
   def create
   	@event = Event.new(event_params)
     @user = current_user	
       if @event.save
-	    redirect_to user_path(@user), notice: "イベントを作成しました"
-	  else
+	      redirect_to user_path(@user), notice: "イベントを作成しました"
+	    else
 	    flash.now[:alert] = "イベントの作成に失敗しました"
         render :new
- 	  end
+ 	    end
   end
 
   def destroy
@@ -35,6 +35,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:user_id, :event_code, :name, :content)
   end
-
 end
 

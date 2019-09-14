@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     respond_to do |format|    
       if @comment.save
         format.js { render :index }
-        flash.notice = "コメントの作成に成功しました"
       else
         format.html { redirect_to user_event_path(@event.user_id, @event) }
         flash.alert = "コメントの作成に失敗しました"
@@ -21,7 +20,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.destroy
         format.js { render :index }
-        flash.notice = "コメントの作成に成功しました"
       end 
     end
   end

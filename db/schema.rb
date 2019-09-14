@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_134604) do
+ActiveRecord::Schema.define(version: 2019_09_14_033049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2019_09_12_134604) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "unknown_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "comment_id"
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["unknown_user_id"], name: "index_likes_on_unknown_user_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "unknown_users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,4 +68,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_134604) do
   add_foreign_key "comments", "unknown_users"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "users"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "unknown_users"
+  add_foreign_key "likes", "users"
 end
