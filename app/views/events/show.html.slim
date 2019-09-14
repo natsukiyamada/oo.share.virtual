@@ -20,3 +20,5 @@ div.event_comment_form_wrapper
     
     div#comments_area
       = render partial: 'comments/index', locals: { comments: @comments }
+
+= render partial: 'update', locals: {event: @event}

@@ -1,0 +1,5 @@
+div.event_edit_area
+  = form_with model: event, url: user_event_path(event.user, event) do |f| 
+    .form-group    
+      = f.text_area :content, value: event.content, class: "form-group"
+    = f.submit "更新", class: "event_edit_btn"

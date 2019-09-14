@@ -29,6 +29,13 @@ class EventsController < ApplicationController
     flash.notice = "イベントを削除しました" if @event.destroy
   	redirect_to user_path(@user)
   end
+  
+
+  def udpate 
+    event = Event.find(params[:id])
+    event.update!(event_params)
+    redirect_to user_event_path(event.user, event)
+  end
 
   private
 
