@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   end
   
 
-  def udpate 
+  def update 
     event = Event.find(params[:id])
     event.update!(event_params)
     redirect_to user_event_path(event.user, event)
