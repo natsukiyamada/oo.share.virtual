@@ -15,19 +15,26 @@ div.event_comment_form_wrapper
     -if @event.user.id == current_user.id 
       div.event_comment_form_edit_btn
         .fas.fa-edit
-
--if @event.user.id == current_user.id  
   
-  = render partial: 'update', locals: {event: @event}
-
-
-
--unless @event.user.id == current_user.id  
   div.event_comment_form_main
-    div#post_comment_form
-      /eventには@event, userにはcurrent_userが代入される
-      = render partial: 'comments/form', locals: { event: @event, user: @user }
+    -if @event.user == current_user
+      
+    -else
+      div#post_comment_form
+        = render partial: 'comments/form', locals: { event: @event, user: @user }
+      
+      div.switching_comment_area
+        div.comment_recent
+          p 最近のコメント
+        div.comment_liked_ranks
+          p 人気のあるコメント
+      
+      div#comments_area
+        = render partial: 'comments/index', locals: { comments: @comments }
+      div#comments_area_liked_rank_ver
+        = render partial: 'comments/liked_rank', locals: {comments: @comment_liked_ranks}
 
-    div#comments_area
-      = render partial: 'comments/index', locals: { comments: @comments }
-    
+
+= render partial: 'update', locals: {event: @event}
+
+

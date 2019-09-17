@@ -8,6 +8,8 @@ class EventsController < ApplicationController
     @user = current_user
     @event =Event.find(params[:id])
     @comments = @event.comments.all.order(created_at: "DESC")
+    #postgresの場合、group(:id)でグループ化しないとエラーになるので注意
+    @comment_liked_ranks = @event.comments.joins(:likes).group(:id).order("count(likes.id) DESC")
   end
 
   def create

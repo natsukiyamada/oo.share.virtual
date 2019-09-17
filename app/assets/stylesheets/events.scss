@@ -134,7 +134,32 @@
             
         }
         
-        #comments_area {
+        .switching_comment_area {
+            padding: 20px 2px 10px 10px;
+            
+            .comment_recent{
+                display:inline-block;
+                padding:5px;
+                margin-right:10px;
+                border-bottom :solid 3px #4EAA40;
+                background-color:rgba(140, 186, 94, 0.1);
+                cursor:pointer;
+                
+            }
+            
+            .comment_liked_ranks {
+                display:inline-block;
+                padding:5px;
+                background-color:rgba(140, 186, 94, 0.1);
+                cursor:pointer;
+            }
+        }
+        
+        #comments_area_liked_rank_ver {
+            display:none;
+        }
+        
+        #comments_area, #comments_area_liked_rank_ver {
             width:100%;
             padding: 10px 0px;
             

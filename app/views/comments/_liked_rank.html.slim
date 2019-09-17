@@ -1,0 +1,23 @@
+- unless comments.nil?
+  - comments.each do |comment|
+      div.all_comment_each
+       
+       -if comment.user_id == current_user.id
+         div = link_to "削除する", event_comment_path(comment.event_id, comment), method: :delete, remote: true, data: { confirm: "コメントを削除しますか?" }, class: "all_comment_each_destroy"
+       -elsif comment.unknown_user_id == current_user.id
+         div = link_to "削除する", event_comment_path(comment.event_id, comment), method: :delete, remote: true, data: { confirm: "コメントを削除しますか?" }, class: "all_comment_each_destroy"
+       div.event_user_icon
+         i.far.fa-user
+         div.all_comment_each_user_name Anonymous 
+       
+       div.comment_content= comment.content
+       
+       div.like_btn
+         -if signed_in? 
+             -if comment.liked_by_user?(current_user) || comment.liked_by_unknown_user?(current_user)
+                = link_to "いいね済み", comment_like_path(comment.id), method: :delete
+             -else 
+                = link_to "いいね！", comment_like_path(comment), method: :create
+       
+         div.number_of_likes
+           = comment.likes.count if comment.likes.present? 
