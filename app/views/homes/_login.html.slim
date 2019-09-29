@@ -1,0 +1,12 @@
+div.modal_wrapper_session
+  div.modal
+    div#login_form
+      h1 ログイン
+      .close_modal_session
+        i.fas.fa-times
+      = form_with scope: :session, url: login_path, local: true  do |f|
+        .form-group
+          = f.text_field :mail, placeholder: "email", class: 'form-controll', id: 'login_mail_field'
+        .form-group
+          = f.text_field :password, placeholder: "password", class: 'form-controll', id: 'login_password_field'
+        = f.submit "ログイン", class: "submit_btn", id: 'login_btn'

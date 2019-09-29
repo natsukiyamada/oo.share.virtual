@@ -1,0 +1,16 @@
+div.modal_wrapper_new
+  div.modal
+    div#signup_form 
+      h1 新規登録
+      .close_modal_new
+        i.fa.fa-times
+      = form_with scope: :user, url: users_path, local: true do |f|
+        .form-group
+          = f.text_field :name, placeholder: 'name',class: 'form-controll'
+        .form-group
+          = f.text_field :mail, placeholder: 'email', class: 'form-controll'
+        .form-group
+          = f.text_field :password, placeholder: 'password', class: 'form-controll'
+        .form-group
+          = f.text_field :password_confirmation, placeholder: 'password_confirmation', class: 'form-controll'
+        = f.submit "新規登録", class: 'submit_btn' 

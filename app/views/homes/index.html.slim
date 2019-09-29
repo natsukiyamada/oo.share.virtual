@@ -8,33 +8,6 @@ div.main_visual
             = f.text_field :event_code, placeholder: "イベントコードを入力...", class: 'form-controll'
           = f.submit "Join", class: "submit_btn_unknown_user" 
 
-div.modal_wrapper_new
-  div.modal
-    div#signup_form 
-      h1 新規登録
-      .close_modal_new
-        i.fa.fa-times
-      = form_with scope: :user, url: users_path, local: true do |f|
-        .form-group
-          = f.text_field :name, placeholder: 'name',class: 'form-controll'
-        .form-group
-          = f.text_field :mail, placeholder: 'email', class: 'form-controll'
-        .form-group
-          = f.text_field :password, placeholder: 'password', class: 'form-controll'
-        .form-group
-          = f.text_field :password_confirmation, placeholder: 'password_confirmation', class: 'form-controll'
-        = f.submit "新規登録", class: 'submit_btn' 
+= render partial: 'signup'
 
-div.modal_wrapper_session
-  div.modal
-    div#login_form
-      h1 ログイン
-      .close_modal_session
-        i.fas.fa-times
-      = form_with scope: :session, url: login_path, local: true  do |f|
-        .form-group
-          = f.text_field :mail, placeholder: "email", class: 'form-controll'
-        .form-group
-          = f.text_field :password, placeholder: "password", class: 'form-controll'
-        = f.submit "ログイン", class: "submit_btn"
-
+= render partial: 'login'
