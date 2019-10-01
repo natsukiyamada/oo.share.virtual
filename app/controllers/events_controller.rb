@@ -15,12 +15,12 @@ class EventsController < ApplicationController
   def create
   	@event = Event.new(event_params)
     @user = current_user	
-      if @event.save
-	      redirect_to user_path(@user), notice: "イベントを作成しました"
-	    else
-	    flash.now[:alert] = "イベントの作成に失敗しました"
-        render :new
- 	    end
+    if @event.save
+      flash.notice =  "イベントを作成しました"
+    else
+      flash.alert = "イベントの作成に失敗しました"
+    end
+      redirect_to user_path(@user)
   end
 
   def destroy

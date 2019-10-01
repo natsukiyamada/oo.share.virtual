@@ -5,7 +5,7 @@ div.main_visual
     div.join_events_with_unknown_user
       = form_with scope: :unknown_user, url: unknown_users_path(UnknownUser.new), local: true do |f|
           .form-group
-            = f.text_field :event_code, placeholder: "イベントコードを入力...", class: 'form-controll'
+            = f.text_field :event_code, placeholder: "CODE", class: 'form-controll'
           = f.submit "Join", class: "submit_btn_unknown_user" 
 
 = render partial: 'signup'
