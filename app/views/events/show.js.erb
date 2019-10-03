@@ -1,0 +1,2 @@
+/* global $ */
+$("#comments_area").prepend("<%= j(render 'index', { new_comments: @new_comments.order(created_at: "DESC") }) %>");

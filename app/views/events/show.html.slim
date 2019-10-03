@@ -17,11 +17,9 @@ div.event_comment_form_wrapper
         .fas.fa-edit
   
   div.event_comment_form_main
-    -if @event.user == current_user
-      
-    -else
-      div#post_comment_form
-        = render partial: 'comments/form', locals: { event: @event, user: @user }
+      -unless @event.user == current_user
+        div#post_comment_form
+          = render partial: 'comments/form', locals: { event: @event, user: @user }
       
       div.switching_comment_area
         div.comment_recent

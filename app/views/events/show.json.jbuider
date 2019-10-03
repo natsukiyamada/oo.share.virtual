@@ -1,0 +1,8 @@
+if @new_comments.present? 
+  json.array! @new_comments do |new_comment|
+      json.content new_comment.content
+      json.id new_comment.id
+      json.current_user_id @user.id
+      json.comment_user_id new_comment.unknown_user.id
+  end
+end

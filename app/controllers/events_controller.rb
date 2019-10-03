@@ -10,6 +10,12 @@ class EventsController < ApplicationController
     @comments = @event.comments.all.order(created_at: "DESC")
     #postgresの場合、group(:id)でグループ化しないとエラーになるので注意
     @comment_liked_ranks = @event.comments.joins(:likes).group(:id).order("count(likes.id) DESC")
+    @new_comments = @event.comments.where('id > ?', params[:last_comment_id])
+    
+    respond_to do |format| 
+      format.html
+      format.js { render :show }
+    end
   end
 
   def create

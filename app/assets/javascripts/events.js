@@ -1,5 +1,30 @@
 /* global $ */
 $(document).on('turbolinks:load', function() { 
+	$(function(){
+		if (window.location.href.match(/\/users\/\d+\/events/)!=null){
+			setInterval(update, 5000);
+		}
+	});
+	
+	function update(){
+		let parentDOM = document.getElementById("comments_area");
+		let commentTarget = parentDOM.getElementsByClassName("all_comment_each")[0];
+		let id = commentTarget.getAttribute('data-id');
+		let comment_id = Number(id);
+		
+		$.ajax({ 
+			url: location.href, 
+			type: 'GET',
+			data: {last_comment_id: comment_id },
+			dataType: 'script' 
+		})
+		.done(function(data){
+		  console.log('ajax has been successful')
+		})
+		.fail(function(){
+			alert('検索に失敗しました') 
+	    });
+	}
 	
 	$('.create_event_form').click(function(){
 	    $('.modal_wrapper_make_event').addClass('active');
