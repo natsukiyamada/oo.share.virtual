@@ -2,11 +2,12 @@
 $(document).on('turbolinks:load', function() { 
 	$(function(){
 		if (window.location.href.match(/\/users\/\d+\/events/)!=null){
-			setInterval(update, 5000);
+			setInterval(catchNewComment, 5000);
+			setInterval(updateCommentArea, 6000)
 		}
 	});
 	
-	function update(){
+	function catchNewComment(){
 		let parentDOM = document.getElementById("comments_area");
 		let commentTarget = parentDOM.getElementsByClassName("all_comment_each")[0];
 		let id = commentTarget.getAttribute('data-id');
@@ -19,10 +20,25 @@ $(document).on('turbolinks:load', function() {
 			dataType: 'script' 
 		})
 		.done(function(data){
-		  console.log('ajax has been successful')
+		  console.log('new comment has been catched ')
 		})
 		.fail(function(){
-			alert('検索に失敗しました') 
+		  console.log('検索に失敗しました') 
+	    });
+	}
+
+	function updateCommentArea() {
+        $.ajax({ 
+			url: location.href, 
+			type: 'GET',
+			data: {update_comment_area: "update!" },
+			dataType: 'script' 
+		})
+		.done(function(data){
+		  console.log('updated comment area')
+		})
+		.fail(function(){
+		  console.log('update was fail') 
 	    });
 	}
 	
