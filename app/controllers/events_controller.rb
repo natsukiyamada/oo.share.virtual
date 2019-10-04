@@ -10,15 +10,21 @@ class EventsController < ApplicationController
     @comments = @event.comments.all.order(created_at: "DESC")
     #postgresの場合、group(:id)でグループ化しないとエラーになるので注意
     @comment_liked_ranks = @event.comments.joins(:likes).group(:id).order("count(likes.id) DESC")
+    
+    #ajax通信時
     @new_comments = @event.comments.where('id > ?', params[:last_comment_id])
+    @last_comment = params[:last_comment_id]
     @update = params[:update_comment_area]
     
+
     respond_to do |format| 
       format.html
 
-      if @new_comments.present? && @update.present?
+      if @last_comment.present? && @update.present?
         format.js { render :show }
-      elsif @new_comments.present?
+      elsif @last_comment.present? && @new_comments.nil?
+        format.js { render :show }
+      elsif @last_comment.present? && @new_comments.present?
         format.js { render :show }
       elsif @update.present?
         format.js { render :update }
@@ -45,7 +51,6 @@ class EventsController < ApplicationController
     flash.notice = "イベントを削除しました" if @event.destroy
   	redirect_to user_path(@user)
   end
-  
 
   def update 
     event = Event.find(params[:id])

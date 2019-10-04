@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
 	$(function(){
 		if (window.location.href.match(/\/users\/\d+\/events/)!=null){
 			setInterval(catchNewComment, 5000);
-			setInterval(updateCommentArea, 6000)
+			setInterval(updateCommentArea, 80000)
 		}
 	});
 	
@@ -19,7 +19,8 @@ $(document).on('turbolinks:load', function() {
 			data: {last_comment_id: comment_id },
 			dataType: 'script' 
 		})
-		.done(function(data){
+		.done(function(data){ 
+		  console.log(data);
 		  console.log('new comment has been catched ')
 		})
 		.fail(function(){
