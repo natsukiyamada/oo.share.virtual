@@ -15,11 +15,11 @@ class EventsController < ApplicationController
     @new_comments = @event.comments.where('id > ?', params[:last_comment_id])
     @last_comment = params[:last_comment_id]
     @update = params[:update_comment_area]
-    
 
     respond_to do |format| 
       format.html
-
+      
+      #Dont DRY 
       if @last_comment.present? && @update.present?
         format.js { render :show }
       elsif @last_comment.present? && @new_comments.nil?

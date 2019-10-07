@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
 	$(function(){
 		if (window.location.href.match(/\/users\/\d+\/events/)!=null){
 			setInterval(catchNewComment, 5000);
-			setInterval(updateCommentArea, 80000)
+			setInterval(updateCommentArea, 8000)
 		}
 	});
 	
@@ -50,7 +50,6 @@ $(document).on('turbolinks:load', function() {
 	$('.close_modal_event').click(function() {
 	    $('.modal_wrapper_make_event').removeClass('active');
 	});
-
 
 /*イベントの説明を編集するボタン用 */
 	$('.event_comment_form_edit_btn').click(function(){
