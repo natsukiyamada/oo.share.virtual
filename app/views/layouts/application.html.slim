@@ -10,15 +10,21 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     header.header1
-      div.navbar
+      div.nav-drawer
+        input id="nav-input" type="checkbox" class="nav-unshown"
+        label id="nav-open" for="nav-input"
+          span
+        label.nav-unshown id="nav-close" for="nav-input"
+        div id="nav-content"
+          |
+            ここに中身を入れる
+            
         div.logo OO.Share.
-      div.sign_in
-        p 新規登録
-      div.log_in
-        p ログイン
-      - if signed_in?
-        div.log_out
-          p= link_to "ログアウト", logout_path(current_user), method: :delete, data: {confirm: "ログアウトしますか？"}
+        div.sign_in 新規登録
+        div.log_in ログイン
+  	    -if signed_in?
+  	     div.log_out
+  			   p= link_to "ログアウト", logout_path(current_user), method: :delete, data: {confirm: "ログアウトしますか？"}
     div.container 
     .flash
       - if flash.notice.present? 
