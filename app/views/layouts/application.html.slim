@@ -16,9 +16,10 @@ html
           span
         label.nav-unshown id="nav-close" for="nav-input"
         div id="nav-content"
-          |
-            ここに中身を入れる
-            
+          = link_to "新規登録", "#", class: "sign_in_for_mobile_mode" 
+          = link_to "ログイン", "#", class: "log_in_for_mobile_mode"
+          -if signed_in?
+           = link_to "ログアウト", logout_path(current_user), class: "logout_link_for_mobile_mode", method: :delete, data: {confirm: "ログアウトしますか？"}
         div.logo OO.Share.
         div.sign_in 新規登録
         div.log_in ログイン

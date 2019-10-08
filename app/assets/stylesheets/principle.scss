@@ -35,8 +35,10 @@ header {
   left: 0;
   width: 100%;
   z-index: 10;
+  
   background-color: rgba(82, 199, 80, 1);
   color:white;
+  
   
 .nav-drawer {
 	  width: 100%;
@@ -45,7 +47,6 @@ header {
 	  position: relative;
 	  padding:20px 0;
 	  height:75px;
-      
 
 	  .logo {
 		position: absolute; 
@@ -75,7 +76,6 @@ header {
 		color: white;
 	    text-decoration: none;
 	  }
-      
       
       .log_in {
 		position: absolute;
@@ -132,6 +132,14 @@ header {
 }
 
 @media screen and (max-width: 479px) { /*ウィンドウ幅が479px以下の場合に適用*/
+    header {
+      width:100%;
+    }
+    
+    .logo {
+    	margin-left:10%;
+    }
+    
     .nav-unshown {
 	  display:none;
 	}
@@ -140,6 +148,7 @@ header {
 	  display: inline-block;
 	  width: 30px;
 	  height: 22px;
+	  margin-top:10px;
 	  vertical-align: middle;
 	}
 	
@@ -149,7 +158,7 @@ header {
 	  height: 3px;/*線の太さ*/
 	  width: 25px;/*長さ*/
 	  border-radius: 3px;
-	  background: #555;
+	  background: white;
 	  display: block;
 	  content: '';
 	  cursor: pointer;
@@ -182,10 +191,12 @@ header {
 	  top: 0;
 	  left: 0;
 	  z-index: 9999;/*最前面に*/
-	  width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+	  width: 70%;/*右側に隙間を作る（閉じるカバーを表示）*/
 	  max-width: 330px;/*最大幅（調整してください）*/
 	  height: 100%;
+	  text-align:center;
 	  background: #fff;/*背景色*/
+	  color:black;
 	  transition: .3s ease-in-out;/*滑らかに表示*/
 	  -webkit-transform: translateX(-105%);
 	  transform: translateX(-105%);/*左に隠しておく*/
@@ -203,7 +214,21 @@ header {
 	  box-shadow: 6px 0 25px rgba(0,0,0,.15);
 	}
 	
-	.sign_in, .log_in, .sign_out {
+	.sign_in, .log_in, .log_out {
 		display:none;
+	}
+	
+	.sign_in_for_mobile_mode, .log_in_for_mobile_mode, 	.logout_link_for_mobile_mode  {
+	  text-decoration:none;
+	  display:inline-block;
+	  width:100%;
+	  height:50px;
+	  cursor:pointer;
+	  margin-top:30px;
+	  
+	  color:silver;
+	  font-size:20px;
+	  font-weight:10px;
+	  border-bottom:solid 2px #C0C0C0;
 	}
 }
