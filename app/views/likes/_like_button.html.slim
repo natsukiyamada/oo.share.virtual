@@ -1,0 +1,9 @@
+-if signed_in? 
+  -if comment.liked_by_user?(current_user) || comment.liked_by_unknown_user?(current_user)
+    = link_to "いいね済み", comment_like_path(comment.id), remote: true, method: :delete
+  -else 
+    = link_to "いいね！", comment_like_path(comment), method: :post, remote: true
+  
+div.number_of_likes
+  =comment.likes.count if comment.likes.present? 
+  
