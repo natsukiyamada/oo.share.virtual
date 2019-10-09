@@ -1,53 +1,51 @@
 .user_content {
+    width:100%;
+    height:60px;
+    
+    background-color:rgba(69, 208, 67,1);
     filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
 }
 
 .user_info_details {
-  width:100%;
-  height:60px;
-  background-color:rgba(69, 208, 67,1);
-  padding: 15px 20px ;
-  
+    margin: 0 auto;
+    height:60px;
   
   .user_edit {
      display:inline-block;
-     background-color :rgba(133, 225, 131,1); 
      height:30px;
-     width:15%;
      float:left;
      border-radius:20px;
-     padding: 2px 20px;
-     margin: 0px 20px;
      
      .user_icon {
-         width:50%;
          float:left;
-         color :white;
          line-height:30px;
+         color:white;
          
-         div {
+         a {
+           .fas.fa-user:before {
+             color:white;
              display:inline-block;
              width:15%;
-             a {
-                 color:white;
-                 text-decoration: none;
-             }
+           }
+         
+           .user_email {
+             color:white;
+           }
          }
      }
   }
   
   .make_event_form {
     display:inline-block;
-    float:left;
-    width:20%;
+    float:right;
     height:30px;
-    float:left;
+
     
     
     input[type="text"] {
         border-style: none;
         display:inline-block;
-        width:30%;
+        width:50%;
         height:30px;
         float:left;
     }
@@ -57,7 +55,7 @@
         width:30%;
         height:30px;
         border-style: none;
-        color:rgbargb(49, 146, 47,1);
+        color:rgba(49, 146, 47,1);
         background-color:rgba(205, 238, 204,1);
     } 
   }
@@ -65,7 +63,7 @@
  }
  
 .event_content_wrapper {
-    background-color:rgba(232, 244, 224,1);
+    /*background-color:rgba(232, 244, 224,1);*/
     text-align:center;
     width:100;
     height:700px;
@@ -83,7 +81,6 @@
             
             .create_event_form {
                 color:white;
-                width:15%;
                 height:70%;
                 float: right;
                 padding:8px 0px;
@@ -99,20 +96,15 @@
         }   
     
       .event_content_each {
-           height:80px;
-           margin:10px 0px;
-           padding:30px;
-           background-color:rgba(244, 245, 244,0.8);
-           border-radius:10px;
-           filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
-          
-           .no_event {
-               color: red;
-           }
-           
+         height:80px;
+         margin:10px 0px;
+         background-color:rgba(244, 245, 244,0.8);
+         border-radius:10px;
+         filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
+         
            .user_show_event_name {
-               display:inline-block;
-               height:100%;
+               width:100%;
+               height:30%;
                margin-right: 10px;
                padding:5px;
                float:left;
@@ -124,8 +116,8 @@
            }
           
            .user_show_event_code {
-               display:inline-block;
-               height:100%;
+               width:100%;
+               height:30%;
                padding:5px;
                float:left;
                color:rgba(39, 46, 34, 0.61);
@@ -133,8 +125,8 @@
            
            .user_show_event_destroy {
                display:inline-block;
-               height:100%;
                padding:5px;
+               margin: 0 10px 0 15px;
                float:right;
                border-radius:20px;
                background-color:rgba(219, 20, 23, 0.61);
@@ -168,3 +160,53 @@
     }
 }
 
+@media screen and (min-width: 480px) {
+  .user_info_details {
+    width:70%;
+    padding: 15px 20px ;
+  }
+  
+  .user_edit {
+    padding: 2px 20px;
+    margin: 0px 20px;
+    background-color :rgba(133, 225, 131,1); 
+  }
+  
+  .user_email {
+    display:inline-block;
+    margin-left:5px;
+  }
+  
+  .make_event_form {
+    width:20%;
+  }
+  
+  .create_event_form {
+    width:15%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .user_info_details {
+    width:100%;
+    padding: 15px 5px;    
+  }
+  
+  .user_edit {
+     width:40%;
+     padding: 2px;
+     margin:0 10px;
+  } 
+  
+  .user_email {
+     display:none;
+  }
+  
+  .make_event_form {
+    width:50%;
+  }
+  
+  .create_event_form {
+    width:100%;
+  }
+}

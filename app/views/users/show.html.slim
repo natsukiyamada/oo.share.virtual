@@ -2,11 +2,11 @@
 /もし文字列の中にdata出力したい場合、h1 Welcome #{current_user.name} to the show.とする
 div.user_content
   .user_info_details  
-    - if @user == current_user
       div.user_edit
-        div.user_icon
+        div.user_icon= link_to(edit_user_path(@user)) do
           .fas.fa-user
-          div= link_to "#{@user.mail}", edit_user_path(@user)
+          div.user_email #{@user.mail}
+        end
       div.make_event_form  
         = form_with scope: :invitation, url: invitations_path do |f|
           .form-group
