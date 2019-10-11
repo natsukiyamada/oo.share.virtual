@@ -1,12 +1,14 @@
-hi Sign Up!
-
-= form_with model: @user, local: true do |f|
-  .form-group
-    = f.text_field :name, placeholder: 'name',class: 'form-controll'
-  .form-group
-    = f.text_field :mail, placeholder: 'email', class: 'form-controll'
-  .form-group
-    = f.text_field :password, placeholder: 'password', class: 'form-controll'
-  .form-group
-    = f.text_field :password_confirmation, placeholder: 'password_confirmation', class: 'form-controll'
-  = f.submit nil, class: 'btn btn-primary' 
+div.user_new_form
+  h1 新規登録 
+  = form_with model: @user, local: true do |f|
+    .form-group
+      = f.text_field :name, placeholder: 'name',class: 'user_new_name'
+    .form-group
+      = f.text_field :mail, placeholder: 'email', class: 'user_new_mail'
+    .form-group
+      = f.text_field :password, placeholder: 'password', class: 'user_new_password'
+    .form-group
+      = f.text_field :password_confirmation, placeholder: 'password_confirmation', class: 'user_new_password_confirmation'
+    = f.submit "新規登録", class: 'user_new_submit_btn_for_mobile' 
+  
+  

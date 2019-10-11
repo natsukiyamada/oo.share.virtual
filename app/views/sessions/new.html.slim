@@ -1,8 +1,8 @@
-h1 ログイン
-
-= form_with scope: :session, local: true do |f|
+div.session_new_form
+ h1 ログイン  
+ = form_with scope: :session, local: true do |f|
     .form-group
-      = f.text_field :mail, placeholder: "email", class: 'form-controll'
+      = f.text_field :mail, placeholder: "email", class: "session_new_mail"
     .form-group
-      = f.text_field :password, placeholder: "password", class: 'form-controll'
-    = f.submit nil, class: 'btn btn-primary' 
+      = f.text_field :password, placeholder: "password", class: "session_new_password"
+    = f.submit "ログイン", class: 'session_new_submit_btn' 

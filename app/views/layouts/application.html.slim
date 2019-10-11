@@ -16,8 +16,8 @@ html
           span
         label.nav-unshown id="nav-close" for="nav-input"
         div id="nav-content"
-          = link_to "新規登録", "#", class: "sign_in_for_mobile_mode" 
-          = link_to "ログイン", "#", class: "log_in_for_mobile_mode"
+          = link_to "新規登録", new_user_path, class: "sign_in_for_mobile_mode" 
+          = link_to "ログイン", login_path, class: "log_in_for_mobile_mode"
           -if signed_in?
            = link_to "ログアウト", logout_path(current_user), class: "logout_link_for_mobile_mode", method: :delete, data: {confirm: "ログアウトしますか？"}
         div.logo OO.Share.
