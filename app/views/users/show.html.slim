@@ -25,7 +25,8 @@ div.event_content_wrapper
             div.user_show_event_destroy = link_to "削除", user_event_path(@user.id, event), method: :delete, data: { confirm: "#{event.name}を削除しますか?" }
     - else
           div.no_event 作成済みのイベントはありません
-          
+  
+
 div.modal_wrapper_make_event
   div.modal
     div#event_form
@@ -42,3 +43,4 @@ div.modal_wrapper_make_event
         .form-group
           = f.text_area :content, rows: 5, placeholder: '説明があれば記入', class: 'form-controll'
         = f.submit "作成", class: "submit_btn"
+  div.back_to_window

@@ -216,7 +216,7 @@
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 100;
+    z-index: 10;
     display:none;  
     
     
@@ -231,7 +231,7 @@
       background-color:rgba(232, 234, 236,1);
       padding:30px;
       border-radius:20px;
-      
+      z-index:20;
       
       .event_content_edit_form {
           width:100%;
