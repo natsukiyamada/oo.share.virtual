@@ -1,2 +1,3 @@
 /* global $ */
 $("#comments_area").html("<%= j(render 'index', { new_comments: @comments }) %>");
+$("#comments_area_liked_rank_ver").html("<%= j(render 'index', { new_comments: @comment_liked_ranks }) %>");
