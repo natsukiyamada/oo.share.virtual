@@ -1,6 +1,9 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
 .main-visual {
 	text-align:center;
@@ -82,13 +85,11 @@
 }
 
 .modal {
-  position: absolute;
-  top: 20%;
-  left: 34%;
+  position:relative;
+  margin:10% auto;
   background-color: #e6ecf0;
   padding: 20px 0 40px;
   border-radius: 10px;
-  width: 450px;
   height: auto;
   text-align: center;
 }
@@ -115,16 +116,27 @@
   resize: none;
 }
 
+
 #submit_btn {
   display: inline-block;
   padding: 14px 140px;
-  background-color:#5dca88;
+  background-color: #5dca88;
   border: none;
   border-radius: 3px;
   color: white;
   margin: 10px auto;
   cursor: pointer;
 }
+
+@media screen and (min-width: 480px) {
+ 
+ .modal {
+   width: 450px;
+ }
+ 
+ 
+}
+
 
 @media screen and (max-width: 479px) {
   .main_visual {
@@ -141,4 +153,8 @@
   .catchcopy h2 {
 		font-size:30px;
 	}
-}  
+	
+	.modal {
+    width: 350px;
+  }
+}
