@@ -1,2 +1,15 @@
-h1 Users#edit
-p Find me in app/views/users/edit.html.slim
+div.user_edit_title 
+  h2 ユーザー情報を編集する
+  h2 #{@user.name}
+  div#signup_form
+    = form_with model: @user, local: true do |f|
+      .form-group
+        = f.text_field :name, placeholder: 'name',class: 'form-controll'
+      .form-group
+        = f.text_field :mail, placeholder: 'email', class: 'form-controll'
+      .form-group
+        = f.text_field :password, placeholder: 'password', class: 'form-controll'
+      .form-group
+        = f.text_field :password_confirmation, placeholder: 'password_confirmation', class: 'form-controll'
+      = f.submit "変更", class: 'submit_btn' 
+  

@@ -3,10 +3,15 @@
 div.user_content
   .user_info_details  
       div.user_edit
-        div.user_icon= link_to(edit_user_path(@user)) do
-          .fas.fa-user
-          div.user_email #{@user.mail}
-        end
+        div.user_icon
+          div.user_name #{@user.name}
+        div.dropdown_menu_user_edit
+          div.user_information 
+            .fas.fa-user
+            div.user_information_name #{@user.name} 
+            div.user_information_email #{@user.mail}
+          div.user_information_edit=link_to "変更", edit_user_path(@user.id)
+      
       div.make_event_form  
         = form_with scope: :invitation, url: invitations_path do |f|
           .form-group
