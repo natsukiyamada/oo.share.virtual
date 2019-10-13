@@ -108,11 +108,8 @@
                margin-right: 10px;
                padding:5px;
                float:left;
-               
-               a {
-                   color:black;
-                   text-decoration: none;
-               }
+               text-decoration: none;
+               color:black;
            }
           
            .user_show_event_code {
@@ -208,6 +205,10 @@
   
   .create_event_form {
     width:100%;
+  }
+
+  .user_show_event_name {
+    display:none; 
   }
 }
 

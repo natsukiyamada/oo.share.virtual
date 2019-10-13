@@ -19,10 +19,11 @@ div.event_content_wrapper
       div.create_event_form イベントをつくる
     - if @events.present?
       - @user.events.each do |event|
-          div.event_content_each
-            div.user_show_event_name = link_to event.name, user_event_path(@user.id, event)
-            div.user_show_event_code = event.event_code
+          div.event_content_each= link_to (user_event_path(@user.id, event)) do
+            div.user_show_event_name #{event.name}
+            div.user_show_event_code #{event.event_code} #{event.created_at.strftime('%Y/%m/%d')}
             div.user_show_event_destroy = link_to "削除", user_event_path(@user.id, event), method: :delete, data: { confirm: "#{event.name}を削除しますか?" }
+          end
     - else
           div.no_event 作成済みのイベントはありません
   
