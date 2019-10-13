@@ -1,7 +1,11 @@
 
 /* global $ */
 $(document).on('turbolinks:load', function() { 
-	
+	/*flashを一定時間で消す関数*/
+	$(function(){
+		setTimeout("$('.flash').fadeOut('slow')", 3000) 
+	})
+
 	/*新規登録ボタン*/
 	$('.sign_in').click(function(){
 	    $('.modal_wrapper_new').addClass('active');
