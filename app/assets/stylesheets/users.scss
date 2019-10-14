@@ -7,8 +7,8 @@
 }
 
 .user_info_details {
-  margin: 0 auto;
-  height:60px;
+margin: 0 auto;
+height:60px;
 
 .user_edit {
    height:30px;
@@ -18,6 +18,10 @@
        width:100%;
        line-height:30px;
        color:white;
+       
+       .fas.fa-user {
+         width:100%;
+       }
        
        .user_name {
          width:100%;
@@ -48,6 +52,7 @@
             color:rgb(134, 145, 137); 
          }
        }
+       
        .user_information_edit {
           padding:1px;
           width:30%;
@@ -68,15 +73,11 @@
 }
 
 .make_event_form {
-  display:inline-block;
   float:right;
   height:30px;
-
-  
   
   input[type="text"] {
       border-style: none;
-      display:inline-block;
       width:50%;
       height:30px;
       float:left;
@@ -104,8 +105,6 @@
       display:inline-block;
       width:70%;    
       height:500px;
-      margin-top:20px;
-      
       
       .create_event_form_wrapper {
           height:50px;
@@ -115,7 +114,6 @@
               color:white;
               height:70%;
               float: right;
-              padding:8px 0px;
               border-radius:20px;
               background-color:rgba(102, 147, 219,0.8);
               filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.1));
@@ -130,6 +128,7 @@
     .event_content_each {
        height:80px;
        margin:10px 0px;
+       padding-top: 10px;
        background-color:rgba(244, 245, 244,0.8);
        border-radius:10px;
        filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.2));
@@ -155,7 +154,6 @@
          }
          
          .user_show_event_destroy {
-             display:inline-block;
              padding:5px;
              margin: 0 10px 0 15px;
              float:right;
@@ -252,6 +250,9 @@
   margin: 0px 20px;
 }
 
+.fas.fa-user {
+  display:none;
+}
 .user_name {
   display:inline-block;
   margin-left:5px;
@@ -261,12 +262,13 @@
   width:20%;
 }
 
-.create_event_form_wrapper {
-  
-}
-
 .create_event_form {
   width:15%;
+  padding: 8px 0;
+}
+
+.event_content {
+  margin-top:20px;
 }
 }
 
@@ -282,6 +284,14 @@
    margin:0 10px;
 } 
 
+.fas.fa-user {
+  width:10px;
+}
+
+.user_name {
+  display:none;
+}
+
 .user_email {
    display:none;
 }
@@ -290,12 +300,27 @@
   width:50%;
 }
 
+.create_event_form_wrapper {
+  position:fixed;
+  bottom:0;
+  right:0;
+}
+
 .create_event_form {
   width:100%;
+  padding: 7px 5px 0px 5px; 
 }
 
 .user_show_event_name {
   display:none; 
+} 
+
+.dropdown_menu_user_edit {
+  z-index:50;   
+}
+
+.event_content {
+  margin-top:100px;
 }
 }
 
