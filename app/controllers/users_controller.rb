@@ -29,6 +29,8 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find_by(id: params[:id])
 		@user.update!(user_params)
+
+		flash.notice = "ユーザ情報を変更しました"
 		redirect_to user_path(@user)
 	end
 	
