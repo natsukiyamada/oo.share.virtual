@@ -21,9 +21,10 @@ html
           -if signed_in?
            = link_to "ログアウト", logout_path(current_user), class: "logout_link_for_mobile_mode", method: :delete, data: {confirm: "ログアウトしますか？"}
         div.logo OO.Share.
-        div.sign_in 新規登録
-        div.log_in ログイン
-  	    -if signed_in?
+        -unless signed_in?
+          div.sign_in 新規登録
+          div.log_in ログイン
+  	    -else
   	     div.log_out
   			   p= link_to "ログアウト", logout_path(current_user), method: :delete, data: {confirm: "ログアウトしますか？"}
     div.container 

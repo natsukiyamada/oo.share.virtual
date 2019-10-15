@@ -15,13 +15,11 @@ class InvitationsController < ApplicationController
          redirect_to user_event_path(user, event)
        else
          reset_session
-         
          unknown_user = UnknownUser.new
          unknown_user.save
          session[:unknown_user_id] = unknown_user.id
          redirect_to user_event_path(event.user, event)
        end
-       
     else
        flash.notice = "イベントがありません"
        @user = current_user

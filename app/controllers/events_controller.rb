@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     respond_to do |format| 
       format.html
       
-      #Dont DRY 
+      #Not DRY 
       if @last_comment.present? && @update.present?
         format.js { render :show }
       elsif @last_comment.present? && @new_comments.nil?
