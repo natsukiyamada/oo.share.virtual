@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	skip_before_action :login_required, only: [:new]
+	skip_before_action :login_required, only: [:new, :create]
 
 	def new
 		@user = User.new
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	      redirect_to user_path(@user)
 	    else
 	      flash.now[:alert] = "登録できませんでした"
-	      render :new
+	      redirect_to root_url
 	    end
 	end
     

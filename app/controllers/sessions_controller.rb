@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
 	   redirect_to user_path(user), notice: '認証に成功しました' 
 
 	else
-       flash.now[:alert] = "認証に失敗しました"
-       render :new
+       flash.notice = "認証に失敗しました"
+       redirect_to root_url
      end
   end
 
