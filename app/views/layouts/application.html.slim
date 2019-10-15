@@ -20,7 +20,7 @@ html
           = link_to "ログイン", login_path, class: "log_in_for_mobile_mode"
           -if signed_in?
            = link_to "ログアウト", logout_path(current_user), class: "logout_link_for_mobile_mode", method: :delete, data: {confirm: "ログアウトしますか？"}
-        div.logo OO.Share.
+        div.logo= link_to "OO.shares", root_path
         -unless signed_in?
           div.sign_in 新規登録
           div.log_in ログイン
