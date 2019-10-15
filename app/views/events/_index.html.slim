@@ -2,7 +2,7 @@
   - new_comments.each do |comment|
       div.all_comment_each*{'data-id'=>comment.id}
       
-       -if comment.unknown_user_id == current_user.id
+       -if comment.unknown_user_id == current_user.id || @event.user_id == current_user.id
          div = link_to "削除する", event_comment_path(comment.event_id, comment), method: :delete, remote: true, data: { confirm: "コメントを削除しますか?" }, class: "all_comment_each_destroy"
        div.event_user_icon
          i.far.fa-user
