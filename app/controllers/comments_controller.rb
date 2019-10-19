@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id]) 
+    @event = Event.find_by(id: params[:event_id])
     respond_to do |format|
       if @comment.destroy
         format.js { render :index }
